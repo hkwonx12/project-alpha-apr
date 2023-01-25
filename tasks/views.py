@@ -9,14 +9,15 @@ def create_task(request):
     if request.method == "POST":
         form = CreateTaskForm(request.POST)
         if form.is_valid():
-            create = form.save()
+            form = form.save()
             return redirect("list_projects")
     else:
         form = CreateTaskForm()
-    context={
-        "form": form
-    }
+    context = {
+        "form": form,
+        }
     return render(request, "tasks/create.html", context)
+
 
 @login_required
 def show_my_tasks(request):

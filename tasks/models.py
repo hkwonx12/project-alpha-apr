@@ -1,6 +1,7 @@
 from django.db import models
 from projects.models import Project
 from django.conf import settings
+
 # Create your models here.
 class Task(models.Model):
     name = models.CharField(max_length=200)
@@ -16,5 +17,5 @@ class Task(models.Model):
         settings.AUTH_USER_MODEL,
         null=True,
         related_name="tasks",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
